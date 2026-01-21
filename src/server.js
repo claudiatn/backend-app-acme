@@ -6,6 +6,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', service: 'backend' });
 });
 
+app.get('/api/ready', (req, res) => {
+  // aquí podrías chequear DB, Redis, etc
+  res.status(200).json({ status: 'ready' });
+});
+
 app.get('/api/tasks', (req, res) => {
   res.json([
     { id: 1, title: 'Aprender Kubernetes' },
