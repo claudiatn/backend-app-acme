@@ -1,6 +1,20 @@
 const express = require('express');
+const logger = require('./logger');
+
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.get('/api/health', (req, res) => {
+  logger.info({
+    service: 'backend',
+    env: process.env.NODE_ENV || 'dev',
+    trace_id: req.headers['x-trace-id'] || 'no-trace',
+    endpoint: '/api/health',
+    status: 'ok'
+  }, 'Health check hit');
+  res.status(200).json({ status: 'ok' });
+});
+
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', service: 'backend' });
