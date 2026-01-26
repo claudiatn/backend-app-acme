@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/claudiatn/acme-backend
-  tag: "1.0.4"
+  tag: "1.0.5"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: 
@@ -26,6 +26,7 @@ livenessProbe:
 readinessProbe:
   httpGet:
     path: /api/ready
-    port: http
-  initialDelaySeconds: 5
+  initialDelaySeconds: 10
   periodSeconds: 5
+  timeoutSeconds: 3 
+  failureThreshold: 6
