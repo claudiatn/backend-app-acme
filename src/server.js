@@ -23,12 +23,9 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/ready', (req, res) => {
-  logger.info({ userId: 123, action: 'create-user' }, 'Usuario creado correctamente');
-});
-
-app.get('/api/ready', (req, res) => {
-  // aquí podrías chequear DB, Redis, etc
+   // aquí podrías chequear DB, Redis, etc
   res.status(200).json({ status: 'ready' });
+  logger.info({ userId: 123, action: 'create-user' }, 'Usuario creado correctamente');
 });
 
 app.get('/api/tasks', (req, res) => {
