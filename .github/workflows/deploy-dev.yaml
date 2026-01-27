@@ -16,8 +16,14 @@ jobs:
       image_name: acme-backend
       version: 1.0.1
     secrets: inherit
-  cd:
+  
+  security:
     needs: ci
+    uses: claudiatn/platform-ci-cd/.github/workflows/security.yaml@main
+    secrets: inherit
+    
+  cd:
+    needs: security
     uses: claudiatn/platform-ci-cd/.github/workflows/cd-reusable.yaml@main
     with:
       namespace: acme
