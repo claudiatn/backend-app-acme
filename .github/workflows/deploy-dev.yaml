@@ -21,6 +21,7 @@ jobs:
     uses: claudiatn/platform-ci-cd/.github/workflows/cd-reusable.yaml@main
     with:
       namespace: acme
-      chart: backend
+      chart: backend            
+      path-chart: backend
       environment: dev
     secrets: inherit
