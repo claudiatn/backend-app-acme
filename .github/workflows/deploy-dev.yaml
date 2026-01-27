@@ -22,6 +22,6 @@ jobs:
     with:
       namespace: acme
       chart: backend            
-      path-chart: backend
+      path_chart: backend
       environment: dev
     secrets: inherit
