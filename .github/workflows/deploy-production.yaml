@@ -3,7 +3,7 @@ name: Backend CI/CD
 on:
   push:
     branches:
-       - stating
+       - production
 
 permissions:
   contents: read
@@ -22,5 +22,6 @@ jobs:
     with:
       namespace: acme
       chart: backend
-      environment: stating
+      path_chart: backend
+      environment: production
     secrets: inherit
