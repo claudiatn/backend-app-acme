@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "backend.fullname" . }}
+  name: {{ .Release.Name }}
   labels:
-    app: {{ include "backend.name" . }}
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "backend.name" . }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ include "backend.name" . }}
+        app: {{ .Release.Name }}
     spec:
       imagePullSecrets: 
       {{- toYaml .Values.imagePullSecrets | nindent 8 }}
